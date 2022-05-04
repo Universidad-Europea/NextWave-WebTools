@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #E83F6F;
+    font-family: 'Oswald', sans-serif;
+}
+
+.wrapper{
+    height: 300px;
+    background: #FFFFFF;
+    max-width: 410px;
+    border-radius: 7px;
+    padding: 16px 25px;
+    transition: height 0.2s ease;
+}
+
+.wrapper.active{
+    height: 530px;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+header p{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+
+.wrapper .form{
+    margin: 20px 0 30px;
+}
+
+.form :where(input, button){
+    width: 100%;
+    padding: 10px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    text-align: center;
+    color: #000000;
+}
+
+.form input{
+    font-size: 15px;
+    padding: 0 17px;
+    border: 1px solid #2274A5;
+}
+
+.form button{
+    background-color: #E83F6F;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+}
+
+.wrapper .qr-code{
+    border: 1px solid #2274A5;
+    display:flex;
+    padding: 33px 0;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wrapper.active .qr-code{
+    opacity: 1;
+    pointer-events: auto;
+    transition: 0.5s 0.05s ease;
+}
