@@ -1,0 +1,103 @@
+@import url(http://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+html, body {
+    display: grid;
+    height: 100%;
+    place-items: center;
+}
+
+.wrapper {
+    width: 350px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper .title {
+    color: #fff;
+    line-height: 65px;
+    text-align: center;
+    background: #333;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 10px 10px 0 0;
+}
+
+.wrapper .box {
+    padding: 20px 40px;
+    background: #f5f5f5;
+    border-radius: 10px
+}
+
+.wrapper .box label {
+    display: flex;
+    height: 53px;
+    width: 100%;
+    align-items: center;
+    border: 1px solid lightgrey;
+    margin: 10px 0;
+    padding-left: 20px;
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+.wrapper .box label .dot {
+    height: 20px;
+    width: 20px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    position: relative;
+}
+
+.box label .dot::before{
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#option1:checked ~ .option1 .dot::before,
+#option2:checked ~ .option2 .dot::before,
+#option3:checked ~ .option3 .dot::before,
+#option4:checked ~ .option4 .dot::before {
+    background: #333;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.wrapper .box label .txt {
+    color: #333;
+    font-size: 18px;
+    font-weight: 400;
+    padding-left: 10px;
+    transition: color 0.3s ease;
+}
+
+#option1:checked ~ .option1,
+#option2:checked ~ .option2,
+#option3:checked ~ .option3,
+#option4:checked ~ .option4 {
+    background: #fff;
+    color: #333;
+}
+
+#option1:checked ~ .option1 .txt,
+#option2:checked ~ .option2 .txt,
+#option3:checked ~ .option3 .txt,
+#option4:checked ~ .option4 .txt {
+    background: #fff;
+}
+
+.wrapper .box input[type="radio"] {
+    display: none;
+}
