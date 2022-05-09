@@ -1,45 +1,39 @@
+setInterval(cargarReloj, 1000);
 function cargarReloj(){
  
-    
-    var fechahora = new Date();
-    var hora = fechahora.getHours(); 
-    var minuto = fechahora.getMinutes(); 
-    var segundo = fechahora.getSeconds(); 
- 
-    
-    var meridiano = "AM";
-    
-    
+    var systemDate = new Date();
+    var dd = systemDate.getDate();
+    var mm = systemDate.getMonth()+1;
+    var yyyy = systemDate.getFullYear();
+    var hh = systemDate.getHours();
+    var min = systemDate.getMinutes();
+    var ss = systemDate.getSeconds();
+    var horario = "AM";
   
-    if(hora == 0){
- 
-        hora = 12;
-        
+    if(hh == 0){
+        hh = 12;
     }
-    
+
+    if(hh > 12){
+        hh = hh - 12;
+        horario = "PM";
+    }
   
-    if(hora > 12) {
- 
-        hora = hora - 12;
- 
-       
-        meridiano = "PM";
- 
-    }
+    hh = (hh < 10) ? "0" + hh : hh;
+    min = (min < 10) ? "0" + min : min;
+    ss = (ss < 10) ? "0" + ss : ss;
+
+    var time  = hh + ":" + min + ":" + ss + " " + horario;
     
-   
-    hora = (hora < 10) ? "0" + hora : hora;
-    minuto = (minuto < 10) ? "0" + minuto : minuto;
-    segundo = (segundo < 10) ? "0" + segundo : segundo;
+    if(dd<10) {
+        dd = '0'+ dd;
+    } 
+    if(mm<10) {
+        mm = '0'+ mm;
+    } 
     
-    
-    var tiempo = hora + ":" + minuto + ":" + segundo + " " + meridiano;    
-    document.getElementById("relojnumerico").innerText = tiempo;
-    document.getElementById("relojnumerico").textContent = tiempo;
- 
-    
-    setTimeout(cargarReloj, 500);
-    
+    systemDate = dd + '-' + mm + '-' + yyyy + "\n" + time;
+    document.getElementById("date").innerHTML = systemDate;
 }
  
 
