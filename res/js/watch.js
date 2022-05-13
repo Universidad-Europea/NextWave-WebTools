@@ -1,5 +1,4 @@
 
-
 // Function to convert time to string value
 const getTimeString = ({ hours, minutes, seconds, zone }) => {
     if (minutes / 10 < 1) {
