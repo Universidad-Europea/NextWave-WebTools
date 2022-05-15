@@ -17,7 +17,9 @@ const clearAlarm = document.getElementById("clear-alarm");
 // Select DOM element of active alarm text
 const alarmTextContainer = document.getElementById("alarm-text");
 
-const alarmText = (time) => `Alarm set at time ${time}`;
+//const alarmText = (time) => `Alarm set at time ${time}`;
+
+function alarmText (time){return  `Alarm set at time ${time}`};
 
 // Initialize alarm sound
 //alarmAudio.src = "http://soundbible.com/grab.php?id=1252&type=mp3";
