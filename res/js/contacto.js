@@ -1,5 +1,8 @@
+window.onload=function(){
+
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
+let opcElegida = 0;
 
 const expresiones = {
 	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
@@ -14,7 +17,9 @@ const campos = {
 	nombre: false,
 	password: false,
 	correo: false,
-	telefono: false
+	telefono: false,
+    option : 3,
+    
 }
 
 const validarFormulario = (e) => {
@@ -85,11 +90,15 @@ inputs.forEach((input) => {
 	input.addEventListener('blur', validarFormulario);
 });
 
+function getLabel(){
+    
+}
+
 formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
 	const terminos = document.getElementById('terminos');
-	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked ){
+	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked && campos.option == 3){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
@@ -104,3 +113,5 @@ formulario.addEventListener('submit', (e) => {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
 	}
 });
+
+};
