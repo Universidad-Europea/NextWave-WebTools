@@ -1,52 +1,30 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/qr.css">
+<html>
+    <head>
+        <meta chatset="UTF-8">
+        <title>NextWave | WebTools</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../style/qr.css">
+    </head>
 
-</head>
-<body>
+    <body>
 
-    <div class="wrapper">
-        <div class="title"> Generador QR </div>
-        <div class="subtitle"> Introduzca una URL para empezar</div>
-        <div class="box">
+        <div class="wrapper">
+            <div class="title"> Generador QR </div>
+            <div class="subtitle"> Introduzca una URL para empezar</div>
+            <div class="box">
+                <div class="form">
+                    <input type="text" placeholder="https://uem.es/nota/10" id="url">
+                    <button>Generar</button>
+                </div>
 
-            <div class="form">
-                <input type="text" placeholder="https://uem.es/nota/10" id="url">
-                <button>Generar</button>
+                <div class="qr-code">
+                    <img src="">
+                </div>
             </div>
-
-            <div class="qr-code">
-                <img src="">
-            </div>
-
         </div>
-    </div>
 
+        <script src="../js/qr.js"></script>
 
-
-
-
-
-    
-    
-    <!-- <div class="wrapper">
-        <header>
-            <h1>Generador de códigos QR</h1>
-            <p>Para empezar a usarlo, por favor inserte una URL.</p>
-        </header>
-        <div class="form">
-            <input type="text" placeholder="https://uem.es/aprobados/usarios/alex">
-            <button>Generador QR</button>
-        </div>
-        <div class="qr-code">
-            <img src="" alt="QR Code">
-        </div>
-    </div> -->
-
-    <script src="../js/qr.js"></script>
-
-</body>
+    </body>
 </html>
