@@ -19,7 +19,7 @@ const campos = {
 	correo: false,
 	telefono: false,
     option : 3,
-    
+
 }
 
 const validarFormulario = (e) => {
@@ -90,9 +90,6 @@ inputs.forEach((input) => {
 	input.addEventListener('blur', validarFormulario);
 });
 
-function getLabel(){
-    
-}
 
 formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
