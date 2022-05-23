@@ -12,7 +12,7 @@ generateBtn.addEventListener("click", () => {
 
     qrImg.addEventListener("load", () => {
         wrapper.classList.add("active");
-        generateBtn.innerText = "Generador QR";
+        generateBtn.innerText = "Generar";
     })
  
 });
