@@ -9,11 +9,12 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #E83F6F;
+    background-color: #1c1a96;
 }
 
 .wrapper{
-    width: 600px;
+    width: 800px;
+    height: 600px;
     padding: 30px;
     border-radius: 7px;
     background: #FFFFFF;
