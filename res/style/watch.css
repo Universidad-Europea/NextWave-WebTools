@@ -5,6 +5,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #2274A5;
 }
 #current-time {
   font-size: 32px;
@@ -14,6 +15,7 @@ body {
 h1,
 #active-alarm {
   text-align: center;
+  color: rgb(255, 255, 255);
 }
 .create-alarm,
 .alarm-inputs,
