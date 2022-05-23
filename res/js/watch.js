@@ -1,96 +1,66 @@
-window.onload=function(){
+setInterval(currentDate, 1000);
+function currentDate(){
+    var systemDate = new Date();
+    var dd = systemDate.getDate();
+    var mm = systemDate.getMonth()+1;
+    var yyyy = systemDate.getFullYear();
+    var hh = systemDate.getHours();
+    var min = systemDate.getMinutes();
+    var ss = systemDate.getSeconds();
+    var horario = "";
+  
+    if(hh == 0){
+        hh = 12;
+    }
 
+    if(hh > 24){
+        hh = hh - 12;
+    }
+  
+    hh = (hh < 10) ? "0" + hh : hh;
+    min = (min < 10) ? "0" + min : min;
+    ss = (ss < 10) ? "0" + ss : ss;
 
+    var time  = hh + "h " + min + "m " + ss + "s " + horario;
+    
+    if(dd<10) {
+        dd = '0'+ dd;
+    } 
+    if(mm<10) {
+        mm = '0'+ mm;
+    } 
+    
+    if (mm == 01) {
+        mm = "Enero";
+    } else if (mm == 02) {
+        mm = "Febrero";
+    } else if (mm == 03) {
+        mm = "Marzo";
+    } else if (mm == 04) {
+        mm = "Abril";
+    } else if (mm == 05) {
+        mm = "Mayo";
+    } else if (mm == 06) {
+        mm = "Junio";
+    } else if (mm == 07) {
+        mm = "Julio";
+    } else if (mm == 08) {
+        mm = "Agosto";
+    } else if (mm == 09) {
+        mm = "Septiembre";
+    } else if (mm == 10) {
+        mm = "Octubre";
+    } else if (mm == 11) {  
+        mm = "Noviembre";
+    } else if (mm == 12) {
+        mm = "Diciembre";
+    }
 
-var alarmString = null;
+    systemDate = '📅 ' + dd + ' de ' + mm + ' de ' + yyyy;
+    systemTime = '⏰ ' + time;
+    document.getElementById("date").innerHTML = systemDate;
+    document.getElementById("time").innerHTML = systemTime;
+}
 
-// Select HTML5 Audio element
-const alarmAudio = document.getElementById("alarm-audio");
+currentDate();
 
-// Select DOM element with create-alarm id
-const createAlarm = document.querySelector(".create-alarm");
-
-// Select DOM element of active alarm container
-const activeAlarm = document.getElementById("active-alarm");
-const clearAlarm = document.getElementById("clear-alarm");
-
-// Select DOM element of active alarm text
-const alarmTextContainer = document.getElementById("alarm-text");
-
-//const alarmText = (time) => `Alarm set at time ${time}`;
-
-function alarmText (time){return  `Alarm set at time ${time}`};
-
-// Initialize alarm sound
-//alarmAudio.src = "http://soundbible.com/grab.php?id=1252&type=mp3";
-alarmAudio.src = "../sounds/Alarm_sound.mp3";
-alarmAudio.load();
-
-// Handle Create Alarm submit
-const handleSubmit = (event) => {
-  // Prevent default action of reloading the page
-  event.preventDefault();
-  const { hour, sec, min, zone } = document.forms[0];
-  alarmString = getTimeString({
-    hours: hour.value,
-    seconds: sec.value,
-    minutes: min.value,
-    zone: zone.value
-  });
-  // Reset form after submit
-  document.forms[0].reset();
-  // Hide create alarm
-  createAlarm.style.display = "none";
-  // show active alarm with text
-  activeAlarm.style.display = "block";
-  alarmTextContainer.innerHTML = alarmText(alarmString);
-};
-
-const handleClear = () => {
-  alarmString = "";
-  activeAlarm.style.display = "none";
-  createAlarm.style.display = "block";
-};
-
-// Trigger handleClear on button click
-clearAlarm.addEventListener("click", handleClear);
-// Attach submit event to the form
-document.forms[0].addEventListener("submit", handleSubmit);
-
-// Function to check if alarm needs to be triggered
-const checkAlarm = (timeString) => {
-  if (alarmString === timeString) {
-    alarmAudio.play();
-  }
-};
-
-// Function to convert time to string value
-const getTimeString = ({ hours, minutes, seconds, zone }) => {
-  if (minutes / 10 < 1) {
-    minutes = "0" + minutes;
-  }
-  if (seconds / 10 < 1) {
-    seconds = "0" + seconds;
-  }
-  return `${hours}:${minutes}:${seconds} ${zone}`;
-};
-
-// Function to display current time on screen
-const renderTime = () => {
-  var currentTime = document.getElementById("current-time");
-  const currentDate = new Date();
-  var hours = currentDate.getHours();
-  var minutes = currentDate.getMinutes();
-  var seconds = currentDate.getSeconds();
-  var zone = hours >= 12 ? "PM" : "AM";
-  if (hours > 12) {
-    hours = hours % 12;
-  }
-  const timeString = getTimeString({ hours, minutes, seconds, zone });
-  checkAlarm(timeString);
-  currentTime.innerHTML = timeString;
-};
-
-// Update time every second
-setInterval(renderTime, 1000);
-};
