@@ -19,6 +19,7 @@ const campos = {
 	correo: false,
 	telefono: false,
     option : 3,
+    
 }
 
 const validarFormulario = (e) => {
