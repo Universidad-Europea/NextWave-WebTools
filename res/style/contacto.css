@@ -49,7 +49,7 @@ html, body {
     background: #e9e9e9b5;
 }
 
-.formulario__label {
+.formLbl {
 	display: block;
 	font-weight: 700;
 	font-size: 14px;
@@ -59,7 +59,7 @@ html, body {
 	cursor: pointer;
 }
 
-.formulario__grupo-input {
+.formGroup-input {
 	position: relative;
 }
 
@@ -105,9 +105,9 @@ html, body {
 	margin-right: 10px;
 }
 
-.formulario__grupo-terminos, 
+.formGroup-terminos, 
 .formulario__mensaje,
-.formulario__grupo-btn-enviar {
+.formGroup-btn-enviar {
 	grid-column: span 2;
 }
 
@@ -128,7 +128,7 @@ html, body {
 	display: block;
 }
 
-.formulario__grupo-btn-enviar {
+.formGroup-btn-enviar {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -163,21 +163,21 @@ html, body {
 	display: block;
 }
 
-.formulario__grupo-correcto .formulario__validacion-estado {
+.formGroup-correcto .formulario__validacion-estado {
 	color: #1ed12d;
 	opacity: 1;
 }
 
-.formulario__grupo-incorrecto .formulario__label {
+.formGroup-incorrecto .formLbl {
 	color: #bb2929;
 }
 
-.formulario__grupo-incorrecto .formulario__validacion-estado {
+.formGroup-incorrecto .formulario__validacion-estado {
 	color: #bb2929;
 	opacity: 1;
 }
 
-.formulario__grupo-incorrecto .formulario__input {
+.formGroup-incorrecto .formulario__input {
 	border: 3px solid #bb2929;
 }
 
