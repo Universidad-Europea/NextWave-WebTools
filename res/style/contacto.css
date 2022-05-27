@@ -92,7 +92,7 @@ html, body {
 	display: block;
 }
 
-.formulario__validacion-estado {
+.form_val_status {
 	position: absolute;
 	right: 10px;
 	bottom: 15px;
@@ -163,7 +163,7 @@ html, body {
 	display: block;
 }
 
-.formGroup-correcto .formulario__validacion-estado {
+.formGroup-correcto .form_val_status {
 	color: #1ed12d;
 	opacity: 1;
 }
@@ -172,7 +172,7 @@ html, body {
 	color: #bb2929;
 }
 
-.formGroup-incorrecto .formulario__validacion-estado {
+.formGroup-incorrecto .form_val_status {
 	color: #bb2929;
 	opacity: 1;
 }
