@@ -5,11 +5,11 @@ const inputs = document.querySelectorAll('#formulario input');
 let opcElegida = 0;
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^.{4,12}$/, // 4 a 12 digitos.
+	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/,
+	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+	password: /^.{4,12}$/,
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+	telefono: /^\d{7,14}$/
 }
 
 const fields = {
@@ -25,28 +25,28 @@ const fields = {
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "usuario":
-			validarCampo(expresiones.usuario, e.target, 'usuario');
+			validField(expresiones.usuario, e.target, 'usuario');
 		break;
 		case "nombre":
-			validarCampo(expresiones.nombre, e.target, 'nombre');
+			validField(expresiones.nombre, e.target, 'nombre');
 		break;
 		case "password":
-			validarCampo(expresiones.password, e.target, 'password');
+			validField(expresiones.password, e.target, 'password');
 			validarPassword2();
 		break;
 		case "password2":
 			validarPassword2();
 		break;
 		case "correo":
-			validarCampo(expresiones.correo, e.target, 'correo');
+			validField(expresiones.correo, e.target, 'correo');
 		break;
 		case "telefono":
-			validarCampo(expresiones.telefono, e.target, 'telefono');
+			validField(expresiones.telefono, e.target, 'telefono');
 		break;
 	}
 }
 
-const validarCampo = (expresion, input, campo) => {
+const validField = (expresion, input, campo) => {
 	if(expresion.test(input.value)){
 		document.getElementById(`g${campo}`).classList.remove('formGroup-incorrecto');
 		document.getElementById(`g${campo}`).classList.add('formGroup-correcto');
@@ -59,7 +59,7 @@ const validarCampo = (expresion, input, campo) => {
 		document.getElementById(`g${campo}`).classList.remove('formGroup-correcto');
 		document.querySelector(`#g${campo} i`).classList.add('fa-times-circle');
 		document.querySelector(`#g${campo} i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__${campo} .form_in-error`).classList.add('form_in-error-activo');
+		document.querySelector(`#g${campo} .form_in-error`).classList.add('form_in-error-activo');
 		fields[campo] = false;
 	}
 }
