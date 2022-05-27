@@ -12,7 +12,7 @@ const expresiones = {
 	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
 }
 
-const campos = {
+const fields = {
 	usuario: false,
 	nombre: false,
 	password: false,
@@ -48,19 +48,19 @@ const validarFormulario = (e) => {
 
 const validarCampo = (expresion, input, campo) => {
 	if(expresion.test(input.value)){
-		document.getElementById(`grupo__${campo}`).classList.remove('formGroup-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.add('formGroup-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__${campo} .form_in-error`).classList.remove('form_in-error-activo');
-		campos[campo] = true;
+		document.getElementById(`g${campo}`).classList.remove('formGroup-incorrecto');
+		document.getElementById(`g${campo}`).classList.add('formGroup-correcto');
+		document.querySelector(`#g${campo} i`).classList.add('fa-check-circle');
+		document.querySelector(`#g${campo} i`).classList.remove('fa-times-circle');
+		document.querySelector(`#g${campo} .form_in-error`).classList.remove('form_in-error-activo');
+		fields[campo] = true;
 	} else {
-		document.getElementById(`grupo__${campo}`).classList.add('formGroup-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.remove('formGroup-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+		document.getElementById(`g${campo}`).classList.add('formGroup-incorrecto');
+		document.getElementById(`g${campo}`).classList.remove('formGroup-correcto');
+		document.querySelector(`#g${campo} i`).classList.add('fa-times-circle');
+		document.querySelector(`#g${campo} i`).classList.remove('fa-check-circle');
 		document.querySelector(`#grupo__${campo} .form_in-error`).classList.add('form_in-error-activo');
-		campos[campo] = false;
+		fields[campo] = false;
 	}
 }
 
@@ -69,19 +69,19 @@ const validarPassword2 = () => {
 	const inputPassword2 = document.getElementById('password2');
 
 	if(inputPassword1.value !== inputPassword2.value){
-		document.getElementById(`grupo__password2`).classList.add('formGroup-incorrecto');
-		document.getElementById(`grupo__password2`).classList.remove('formGroup-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__password2 .form_in-error`).classList.add('form_in-error-activo');
-		campos['password'] = false;
+		document.getElementById(`gpassword2`).classList.add('formGroup-incorrecto');
+		document.getElementById(`gpassword2`).classList.remove('formGroup-correcto');
+		document.querySelector(`#gpassword2 i`).classList.add('fa-times-circle');
+		document.querySelector(`#gpassword2 i`).classList.remove('fa-check-circle');
+		document.querySelector(`#gpassword2 .form_in-error`).classList.add('form_in-error-activo');
+		fields['password'] = false;
 	} else {
-		document.getElementById(`grupo__password2`).classList.remove('formGroup-incorrecto');
-		document.getElementById(`grupo__password2`).classList.add('formGroup-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__password2 .form_in-error`).classList.remove('form_in-error-activo');
-		campos['password'] = true;
+		document.getElementById(`gpassword2`).classList.remove('formGroup-incorrecto');
+		document.getElementById(`gpassword2`).classList.add('formGroup-correcto');
+		document.querySelector(`#gpassword2 i`).classList.remove('fa-times-circle');
+		document.querySelector(`#gpassword2 i`).classList.add('fa-check-circle');
+		document.querySelector(`#gpassword2 .form_in-error`).classList.remove('form_in-error-activo');
+		fields['password'] = true;
 	}
 }
 
@@ -95,7 +95,7 @@ formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
 	const terminos = document.getElementById('terminos');
-	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked && campos.option == 3){
+	if(fields.usuario && fields.nombre && fields.password && fields.correo && fields.telefono && terminos.checked && fields.option == 3){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');

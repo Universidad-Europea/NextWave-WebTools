@@ -12,9 +12,9 @@
 		<div class="subtitle">¿Tienes dudas? Contáctanos</div>
 		<div class="box">
 
-			<form action="" class="formulario" id="formulario">
+			<form action="enviadoooo" class="formulario" id="formulario">
 
-				<div class="formGroup" id="grupo__usuario">
+				<div class="formGroup" id="gusuario">
 					<label for="usuario" class="formLbl">Usuario</label>
 					<div class="formGroup-input">
 						<input type="text" class="form_input" name="usuario" id="usuario" required>
@@ -23,7 +23,7 @@
 					<p class="form_in-error">* Letras y numeros de  4 a 16 dígitos.</p>
 				</div>
 	
-				<div class="formGroup" id="grupo__nombre">
+				<div class="formGroup" id="gnombre">
 					<label for="nombre" class="formLbl">Nombre</label>
 					<div class="formGroup-input">
 						<input type="text" class="form_input" name="nombre" id="nombre" required>
@@ -32,7 +32,7 @@
 					<p class="form_in-error">* Letras y numeros de  4 a 16 dígitos.</p>
 				</div>
 	
-				<div class="formGroup" id="grupo__password">
+				<div class="formGroup" id="gpassword">
 					<label for="password" class="formLbl">Contraseña</label>
 					<div class="formGroup-input">
 						<input type="password" class="form_input" name="password" id="password" required>
@@ -41,7 +41,7 @@
 					<p class="form_in-error">* Carácteres entre 4 a 12 dígitos.</p>
 				</div>
 	
-				<div class="formGroup" id="grupo__password2">
+				<div class="formGroup" id="gpassword2">
 					<label for="password2" class="formLbl">Repetir contraseña</label>
 					<div class="formGroup-input">
 						<input type="password" class="form_input" name="password2" id="password2" required>
@@ -50,7 +50,7 @@
 					<p class="form_in-error">* La contraseñas no coinciden</p>
 				</div>
 	
-				<div class="formGroup" id="grupo__correo">
+				<div class="formGroup" id="gcorreo">
 					<label for="correo" class="formLbl">E-mail</label>
 					<div class="formGroup-input">
 						<input type="email" class="form_input" name="correo" id="correo" placeholder="no-reply@uem.com" required>
@@ -59,7 +59,7 @@
 					<p class="form_in-error">* El correo no cumple el formato estándar.</p>
 				</div>
 	
-				<div class="formGroup" id="grupo__telefono">
+				<div class="formGroup" id="gtelefono">
 					<label for="telefono" class="formLbl">Teléfono</label>
 					<div class="formGroup-input">
 						<input type="text" class="form_input" name="telefono" id="telefono" placeholder="640922777" required>
@@ -90,8 +90,11 @@
 					<option value="Espana">España</option>
 					<option value="Portugal">Portugal</option>
 				</select>
+
+				<label class="formLbl">Fecha</label>
+				<input type="date" name="fecha" id="fecha" class="fecha" required>
 	
-				<div class="formGroup" id="grupo__terminos">
+				<div class="formGroup" id="gterminos">
 					<label class="formLbl">
 						<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos" required>
 						Acepto los Terminos y Condiciones
@@ -100,6 +103,7 @@
 	
 				<div class="formGroup formGroup-btn-enviar">
 					<button type="submit" class="formulario__btn">Enviar</button>
+					
 					<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviad</p>
 				</div>
 			</form>

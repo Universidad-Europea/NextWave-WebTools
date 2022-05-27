@@ -218,3 +218,15 @@ html, body {
 	padding: 6px;
 	resize: none;
 }
+
+.fecha {
+	width: 100%;
+	border: 1px solid black;
+	border-radius: 5px;
+	background: #fff;
+	color: #000;
+	font-size: 18px;
+	text-align: center;
+	padding: 6px;
+	resize: none;
+}
