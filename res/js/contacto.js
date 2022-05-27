@@ -69,18 +69,18 @@ const validarPassword2 = () => {
 	const inputPassword2 = document.getElementById('password2');
 
 	if(inputPassword1.value !== inputPassword2.value){
-		document.getElementById(`grupo__password2`).classList.add('formGroup-incorrecto');
-		document.getElementById(`grupo__password2`).classList.remove('formGroup-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__password2 .form_in-error`).classList.add('form_in-error-activo');
+		document.getElementById(`user_passwd2`).classList.add('formGroup-incorrecto');
+		document.getElementById(`user_passwd2`).classList.remove('formGroup-correcto');
+		document.querySelector(`#user_passwd2 i`).classList.add('fa-times-circle');
+		document.querySelector(`#user_passwd2 i`).classList.remove('fa-check-circle');
+		document.querySelector(`#user_passwd2 .form_in-error`).classList.add('form_in-error-activo');
 		campos['password'] = false;
 	} else {
-		document.getElementById(`grupo__password2`).classList.remove('formGroup-incorrecto');
-		document.getElementById(`grupo__password2`).classList.add('formGroup-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__password2 .form_in-error`).classList.remove('form_in-error-activo');
+		document.getElementById(`user_passwd2`).classList.remove('formGroup-incorrecto');
+		document.getElementById(`user_passwd2`).classList.add('formGroup-correcto');
+		document.querySelector(`#user_passwd2 i`).classList.remove('fa-times-circle');
+		document.querySelector(`#user_passwd2 i`).classList.add('fa-check-circle');
+		document.querySelector(`#user_passwd2 .form_in-error`).classList.remove('form_in-error-activo');
 		campos['password'] = true;
 	}
 }
