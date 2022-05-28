@@ -134,7 +134,7 @@ html, body {
 	align-items: center;
 }
 
-.formulario__btn {
+.formBtn {
 	background: #2ac838d1;
 	border-radius: 3px;
 	color: #fff;
@@ -149,7 +149,7 @@ html, body {
 	border: none;
 }
 
-.formulario__btn:hover {
+.formBtn:hover {
 	box-shadow: 0px 0px 30px rgba(163,163,163, 0.4);
 }
 
@@ -229,4 +229,21 @@ html, body {
 	text-align: center;
 	padding: 6px;
 	resize: none;
+}
+
+/* back botton, left in cotainer and minimal style */
+
+.back {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 40px;
+	height: 40px;
+	background: #fff;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
 }
