@@ -2,65 +2,70 @@ window.onload=function(){
 
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
-let opcElegida = 0;
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/,
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
-	password: /^.{4,12}$/,
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/
+	/*
+	REGEX:
+		Controlaremos que el user no pueda introducir caracteres que no sean los esperaods.
+		De esta forma la posibilidad de que cometa un error será prácticamente minimo.
+	*/
+	user: /^[a-zA-Z0-9]{5,10}$/, // Admite 5-10 caracteres alfanumericos.
+	name: /^[a-zA-Z]{3,10}$/, // Admite 3-10 caracteres alfanumericos.
+	password: /^.{8,}$/, // Admite 8 caracteres como minimo.
+	email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/, // Admite un email valido.
+	phone: /^[0-9]{10}$/, // Admite 10 caracteres numericos.
 }
 
-const fields = {
-	usuario: false,
-	nombre: false,
-	password: false,
-	correo: false,
-	telefono: false,
-    option : 3,
+	/* 
+	FUNCIONES:
+		Seteamos los eventos de los inputs en el formulario como false para que no se ejecuten
+		al iniciar la pagina.
+	*/
+const fields = { user: false, name: false, password: false, email: false, phone: false, opention: 3 };
 
-}
 
-const validarFormulario = (e) => {
+
+const complexFormValidation = (e) => { /* validar formulario */
+
 	switch (e.target.name) {
-		case "usuario":
-			validField(expresiones.usuario, e.target, 'usuario');
+		case "user": validField(expresiones.user, e.target, 'user');
 		break;
-		case "nombre":
-			validField(expresiones.nombre, e.target, 'nombre');
+		case "name": validField(expresiones.name, e.target, 'name');
 		break;
-		case "password":
-			validField(expresiones.password, e.target, 'password');
-			validarPassword2();
+		case "password": validField(expresiones.password, e.target, 'password'); validarPassword2();
 		break;
-		case "password2":
-			validarPassword2();
+		case "password2": validarPassword2();
 		break;
-		case "correo":
-			validField(expresiones.correo, e.target, 'correo');
+		case "correo": validField(expresiones.correo, e.target, 'correo');
 		break;
-		case "telefono":
-			validField(expresiones.telefono, e.target, 'telefono');
+		case "phone": validField(expresiones.phone, e.target, 'phone');
 		break;
 	}
 }
 
-const validField = (expresion, input, campo) => {
+/* 
+	FUNCIONES:
+		Validamos los campos del formulario.
+			- Si el campo es valido, se setea el campo como true.
+			- Si el campo es invalido, se setea el campo como false.
+			- Si el campo es vacio, se setea el campo como false.
+*/
+
+const validField = (expresion, input, field) => {
 	if(expresion.test(input.value)){
-		document.getElementById(`g${campo}`).classList.remove('formGroup-incorrecto');
-		document.getElementById(`g${campo}`).classList.add('formGroup-correcto');
-		document.querySelector(`#g${campo} i`).classList.add('fa-check-circle');
-		document.querySelector(`#g${campo} i`).classList.remove('fa-times-circle');
-		document.querySelector(`#g${campo} .form_in-error`).classList.remove('form_in-error-activo');
-		fields[campo] = true;
+		document.getElementById(`g${field}`).classList.remove('formGroup-incorrecto');
+		document.getElementById(`g${field}`).classList.add('formGroup-correcto');
+		document.querySelector(`#g${field} i`).classList.add('fa-check-circle');
+		document.querySelector(`#g${field} i`).classList.remove('fa-times-circle');
+		document.querySelector(`#g${field} .form_in-error`).classList.remove('form_in-error-activo');
+		fields[field] = true;
 	} else {
-		document.getElementById(`g${campo}`).classList.add('formGroup-incorrecto');
-		document.getElementById(`g${campo}`).classList.remove('formGroup-correcto');
-		document.querySelector(`#g${campo} i`).classList.add('fa-times-circle');
-		document.querySelector(`#g${campo} i`).classList.remove('fa-check-circle');
-		document.querySelector(`#g${campo} .form_in-error`).classList.add('form_in-error-activo');
-		fields[campo] = false;
+		document.getElementById(`g${field}`).classList.add('formGroup-incorrecto');
+		document.getElementById(`g${field}`).classList.remove('formGroup-correcto');
+		document.querySelector(`#g${field} i`).classList.add('fa-times-circle');
+		document.querySelector(`#g${field} i`).classList.remove('fa-check-circle');
+		document.querySelector(`#g${field} .form_in-error`).classList.add('form_in-error-activo');
+		fields[field] = false;
 	}
 }
 
@@ -84,31 +89,30 @@ const validarPassword2 = () => {
 		fields['password'] = true;
 	}
 }
+/*
+	FUNCIONES:
+		- Comprobamos que todos los campos esten validados.
+		- Si todos los campos estan validados, se envia el formulario.
+		- Si no, se muestra un mensaje de error.
+*/
 
 inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
+	input.addEventListener('keyup', complexFormValidation);
+	input.addEventListener('blur', complexFormValidation);
 });
-
 
 formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
-	const terminos = document.getElementById('terminos');
-	if(fields.usuario && fields.nombre && fields.password && fields.correo && fields.telefono && terminos.checked && fields.option == 3){
-		formulario.reset();
-
-		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-		setTimeout(() => {
-			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-		}, 5000);
-
-		document.querySelectorAll('.formGroup-correcto').forEach((icono) => {
-			icono.classList.remove('formGroup-correcto');
-		});
+	// Check if all fields is not empty
+	if(fields.user){
+		alert('Formulario enviado correctamente');
 	} else {
-		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+		alert('Por favor, rellene todos los campos');
 	}
+
 });
+
+
 
 };
