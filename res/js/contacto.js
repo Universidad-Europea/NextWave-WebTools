@@ -21,7 +21,7 @@ const expresiones = {
 		Seteamos los eventos de los inputs en el formulario como false para que no se ejecuten
 		al iniciar la pagina.
 	*/
-const fields = { user: false, name: false, password: false, email: false, phone: false, opention: 3 };
+const fields = { user: false, name: false, password: false, email: false, phone: false};
 
 
 
@@ -36,7 +36,7 @@ const complexFormValidation = (e) => { /* validar formulario */
 		break;
 		case "password2": validarPassword2();
 		break;
-		case "correo": validField(expresiones.correo, e.target, 'correo');
+		case "email": validField(expresiones.email, e.target, 'email');
 		break;
 		case "phone": validField(expresiones.phone, e.target, 'phone');
 		break;
@@ -105,10 +105,22 @@ formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
 	// Check if all fields is not empty
-	if(fields.user){
+	if(fields.user && fields.name && fields.password && fields.phone){
 		alert('Formulario enviado correctamente');
+		console.log(fields);
+		console.log(fields.user);
+		console.log(fields.name);
+		console.log(fields.email);
+		console.log(fields.phone);
+		console.log(fields.opention);
 	} else {
 		alert('Por favor, rellene todos los campos');
+		console.log(fields);
+		console.log(fields.user);
+		console.log(fields.name);
+		console.log(fields.email);
+		console.log(fields.phone);
+		console.log(fields.opention);
 	}
 
 });
